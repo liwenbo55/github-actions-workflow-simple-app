@@ -88,7 +88,7 @@ jobs:
         uses: danielr1996/envsubst-action@1.1.0
         env:
           # MONGODB_URI: 'mongodb://jr-githubaction-test-0503:22DrM4Ec1Uw3HyC6fjxRz88sLWkKoWHVtpI8NrQikIDSGtUJOwYw1UJKrvPZrNtyj45XkJB1GwiXACDb5aiUhg==@jr-githubaction-test-0503.mongo.cosmos.azure.com:10255/?ssl=true&retrywrites=false&maxIdleTimeMS=120000&appName=@jr-githubaction-test-0503@'
-          MONGODB_URI: ${{ secrects.MONGODB_URI }}
+          MONGODB_URI: ${{ secrets.MONGODB_URI }}
           CONTAINER_NAME: hello-world-app:${{ github.sha }}
           AZURE_CONTAINER_REGISTRY: jrgithubactiontest.azurecr.io
         with:
