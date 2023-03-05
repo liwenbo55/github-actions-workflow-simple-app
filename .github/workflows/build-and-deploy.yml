@@ -5,6 +5,9 @@ on:
   push:
     branches: ['master']
   workflow_dispatch:
+  
+permissions:
+  contents: read
 
 jobs:
   buildImage:
@@ -34,6 +37,11 @@ jobs:
           file: ./Dockerfile
       
   deployToAKS:
+    permissions:
+      actions: read
+      contents: read
+      id-token: write
+      
     runs-on: ubuntu-latest
     needs: [buildImage]
     environment: Production
