@@ -53,7 +53,7 @@ jobs:
         uses: azure/login@v1
         with:
           client-id: '87099859-0331-4b6a-9e76-7e82dde52222'
-          tenant-id: '4d63f775-65ef-4186-849f-74ccba4a7666'
+          tenant-id: '225a1d03-5836-4cdb-ad59-82fefc9d7030'
           subscription-id: 'ddafef07-9cf5-475d-a9df-722580efb076'
     
       - name: Setup kubelogin
