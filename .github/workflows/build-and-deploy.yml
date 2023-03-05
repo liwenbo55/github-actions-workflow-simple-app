@@ -75,6 +75,24 @@ jobs:
           # Enables kubelogin for non-admin user scenario. Values: true or false
           use-kubelogin: 'true'
           
+          
+      #Substitute environment variables in a field    
+      - name: envsubst-action
+        uses: danielr1996/envsubst-action@1.1.0
+        env:
+          MONGODB_URI: 'mongodb://jr-githubaction-test-0503:22DrM4Ec1Uw3HyC6fjxRz88sLWkKoWHVtpI8NrQikIDSGtUJOwYw1UJKrvPZrNtyj45XkJB1GwiXACDb5aiUhg==@jr-githubaction-test-0503.mongo.cosmos.azure.com:10255/?ssl=true&retrywrites=false&maxIdleTimeMS=120000&appName=@jr-githubaction-test-0503@'
+          CONTAINER_NAME: hello-world-app:${{ github.sha }}
+          AZURE_CONTAINER_REGISTRY: jrgithubactiontest.azurecr.io
+        with:
+          #File to run substitutions on
+          input:
+            kubernetes/hello-world-deployment.yaml
+          #File to write result to
+          output:
+            hello-world-deployment.yaml
+
+      
+          
       - name: Deploy application to Kubernetes cluster
         uses: Azure/k8s-deploy@v4
         with: 
